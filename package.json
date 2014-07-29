@@ -1,0 +1,17 @@
+{
+  "name": "nanostrap",
+  "description": "A nano sized framework to be used as a starting point for simple, static web projects.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "jquery": "~2.1.0-0"
+  }
+}

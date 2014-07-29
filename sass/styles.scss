@@ -1,0 +1,25 @@
+/**
+ * @file Styles
+ *
+ * Basic page styles
+ */
+
+// Import base partial
+@import "base";
+
+// Main styles
+body {
+  background:$page;
+  color: $black;
+  font-family: $helvetica;
+}
+
+h1 {
+  @include centre('y');
+  @include text-shadow(0 2px 0 $white);
+  font-size:5em;
+  font-weight:bold;
+  letter-spacing:-0.03em;
+  text-align: center;
+  width:100%;
+}
