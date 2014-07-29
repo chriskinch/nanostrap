@@ -12,8 +12,8 @@ module.exports = function(grunt) {
                ' */\n'
       },
       outputDir: 'js/dist',
-      output : '<%= meta.outputDir %>/<%= pkg.name %>',
-      outputMin : '<%= meta.outputDir %>/<%= pkg.name.replace("js", "min.js") %>'
+      output : '<%= meta.outputDir %>/<%= pkg.main %>',
+      outputMin : '<%= meta.outputDir %>/<%= pkg.main.replace("js", "min.js") %>'
     },
 
     concat: {
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
           banner: '<%= meta.banner.dist %>'
         },
         files: {
-          '<%= meta.outputDir %>/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+          '<%= meta.outputDir %>/<%= pkg.main %>.min.js': ['<%= concat.dist.dest %>']
         }
       },
     },

@@ -3,6 +3,7 @@
   "description": "A nano sized framework to be used as a starting point for simple, static web projects.",
   "version": "0.1.0",
   "license": "MIT",
+  "main": "scripts",
   "ignore": [
     "**/.*",
     "node_modules"
