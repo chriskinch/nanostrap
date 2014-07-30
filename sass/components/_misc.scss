@@ -8,8 +8,13 @@
 
 // Main styles - just here to get you going!
 
+.main-logo {
+	@include leader(2);
+}
+
 .main-title {
   @include adjust-font-size-to($base-font-size * 5);
+  @include leader(0);
   @include text-shadow(0 2px 0 $base-color-white);
   font-weight: bold;
   letter-spacing: -0.03em;
