@@ -1,25 +1,12 @@
 /**
- * @file Styles
- *
- * Basic page styles
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
  */
 
-// Import base partial
+/* Import Sass partials so the result is a single for for linking. */
 @import "base";
+@import "normalize";
+@import "layout";
+@import "components/misc";
+// Add more comonects as go
 
-// Main styles
-body {
-  background:$page;
-  color: $black;
-  font-family: $helvetica;
-}
-
-h1 {
-  @include centre('y');
-  @include text-shadow(0 2px 0 $white);
-  font-size:5em;
-  font-weight:bold;
-  letter-spacing:-0.03em;
-  text-align: center;
-  width:100%;
-}

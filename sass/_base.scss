@@ -1,9 +1,16 @@
 //
-// "base" partial
+// Base partial
 //
-// To make it easier to use all variables and mixins in any Sass file,
-// each .scss file has a @import "base" declaration.
+// This base partial is organized in this way:
+// - First we set any shared Sass variables.
+// - Next we import Compass plug-ins (Sass mixin libraries).
+// - Last we define our custom mixins for this theme.
+//
 
+
+// =============================================================================
+// Variables
+// =============================================================================
 
 //
 // Font faces, stacks and sizes.
@@ -16,75 +23,86 @@
 
 $base-font-size:   16px; // The font size set on the root html element.
 $base-line-height: 24px; // This line-height determines the basic unit of vertical rhythm.
-$round-to-nearest-half-line: true;
+
+$indent-amount: 30px; // The amount lists, blockquotes and comments are indented.
 
 $h1-font-size: 2    * $base-font-size;
 $h2-font-size: 1.5  * $base-font-size;
 $h3-font-size: 1.17 * $base-font-size;
 $h4-font-size: 1    * $base-font-size;
 $h5-font-size: 0.83 * $base-font-size;
-$h6-font-size: 0.75 * $base-font-size;
+$h6-font-size: 0.67 * $base-font-size;
 
-// First, let's create some font stacks.
+//
+// @fontface
+//
+// Instead of relying on the fonts that are available on a user's computer, you
+// can use web fonts which, like images, are resources downloaded to the user's
+// browser. Because of the bandwidth and rendering resources required, web fonts
+// should be used with care.
+//
+
+// Import via Google Fonts.
+// @import url("http://fonts.googleapis.com/css?family=Open+Sans");
+
+
+// Host it yourself.
+/*
+@font-face {
+  font-family: 'Example';
+  src: url('../fonts/example.eot');
+  src: url('../fonts/example.eot?iefix') format('eot'),
+    url('../fonts/example.woff') format('woff'),
+    url('../fonts/example.ttf') format('truetype'),
+    url('../fonts/example.svg#webfontOkOndcij') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+
+// Now, let's create some font stacks.
+$times-new-roman: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+$times:           Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
 $georgia:         Georgia, "Times New Roman", "DejaVu Serif", serif;
+
+$verdana:         Verdana, Tahoma, "DejaVu Sans", sans-serif;
+$tahoma:          Tahoma, Verdana, "DejaVu Sans", sans-serif;
 $helvetica:       Helvetica, Arial, "Nimbus Sans L", sans-serif;
+$arial:           Arial, Helvetica, "Nimbus Sans L", sans-serif;
+
+$courier:         "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
 
 // Now create some variables for the font stacks we want to use on this site.
-$base-font-family: $helvetica; // The font family set on the html element.
-$font-body:        $helvetica;
+$base-font-family: $verdana;
+$font-monospace:   $courier;
 
 //
 // Colors, etc.
 //
 
-$page:  #dddddd;
-$black: #222222;
-$white: #f5f5f5;
+// General colors.
+$base-color-black:	#111111;
+$base-color-grey:	#888888;
+$base-color-white:	#f5f5f5;
 
-//
-// Custom minins
-//
-
-@mixin centre($axis: "both"){
-    position:absolute;
-    @if $axis == "y"{
-        top:50%;
-        -webkit-transform: translateY(-50%);
-        -moz-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        -o-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-    @if $axis == "x"{
-        left:50%;
-        -webkit-transform: translateX(-50%);
-        -moz-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        -o-transform: translateX(-50%);
-        transform: translateX(-50%);
-    }
-    @if $axis == "both"{
-        top:50%;
-        left:50%;
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
-
-}
+// Element colors.
+$base-color-bg:		#ffffff;
+$base-color-text:	#333333;
 
 
-
+// =============================================================================
+// Partials to be shared with all .scss files.
+// =============================================================================
 //
 // Partials to be shared with all .scss files.
 //
 
-@import "compass/reset";
-@import "compass/support";  // Add Compass' IE and vendor prefix support variables.
-@import "compass/utilities/general/clearfix"; // Better than Drupal's clearfix.
-@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting/
-@import "compass/css3";     // Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/reset"; // Does what it says on the tin.
+@import "compass/support"; // Add Compass' IE and vendor prefix support variables.
+@import "compass/utilities/general/clearfix"; // Handy clearfix.
+@import "compass/utilities/sprites"; // See http://compass-style.org/help/tutorials/spriting
+@import "compass/css3"; // Use one CSS3 mixin instead of multiple vendor prefixes
 @import "compass/typography/vertical_rhythm"; // Helps set up a vertical rhythm.
-@import "compass/layout/stretching"; // Helps with 100% height.
+
+@import "mixins"; // Now we add our custom helper mixins.

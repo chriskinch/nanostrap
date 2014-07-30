@@ -1,0 +1,25 @@
+/**
+ * @file
+ * SMACSS Modules
+ *
+ * Adds modular sets of styles.
+ */
+
+
+// Main styles - just here to get you going!
+
+.main-title {
+  @include adjust-font-size-to($base-font-size * 5);
+  @include text-shadow(0 2px 0 $base-color-white);
+  font-weight: bold;
+  letter-spacing: -0.03em;
+}
+
+.main-slogan {
+  @include adjust-font-size-to($base-font-size * 2);
+  font-size: 2em;
+  letter-spacing: -0.03em;
+  margin-left: auto;
+  margin-right: auto; 
+  width: 75%;
+}
